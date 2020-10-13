@@ -43,15 +43,19 @@ public class InformationActivity extends AppCompatActivity {
                     public void onSuccess(DocumentSnapshot documentSnapshot) {
                         if (documentSnapshot.exists())
                         {
-                            long speed = documentSnapshot.getLong(KEY_SPEED);
-                            long footsteps = documentSnapshot.getLong(KEY_FOOTSTEPS);
+                            String speed = documentSnapshot.getString(KEY_SPEED);
+                            String footsteps = documentSnapshot.getString(KEY_FOOTSTEPS);
 
-                            long MET = (long) (0.85*speed);
+                            long s = Long.parseLong(speed);
+                            long MET = (long) (0.85*s);
                             long calories = (long) (0.0715 * MET * weight);
-
-                            SPEED.setText((int) speed);
-                            INTENSITY.setText((int) MET);
-                            OUTPUT.setText((int) calories);
+                            
+                            String i = Long.toString(MET);
+                            String c = Long.toString(calories);
+                            
+                            SPEED.setText(speed);
+                            INTENSITY.setText(i);
+                            OUTPUT.setText(c);
                         }
                         else
                         {
