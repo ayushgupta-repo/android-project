@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
         Intent showInformation = new Intent(MainActivity.this, InformationActivity.class);
 
-        String nextMessage1 = Float.toString(weight);
+        String nextMessage1 = Long.toString(weight);
 
         showInformation.putExtra(WEIGHT, nextMessage1);
 
